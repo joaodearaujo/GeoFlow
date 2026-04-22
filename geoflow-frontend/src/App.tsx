@@ -1,5 +1,6 @@
 import Deliveries from "./components/Deliveries"
 import SearchField from "./components/Search"
+import Map from "./components/Map"
 
 function App() {
 
@@ -15,7 +16,9 @@ function App() {
           </div>
           <Deliveries />
       </div>
-      <div className="col-span-7 flex h-full items-center justify-center">Map</div>
+      <div className="col-span-7 flex h-full items-center justify-center">
+        <Map />
+      </div>
       <div className="col-span-3 flex h-full items-center justify-center">Delivery Detail</div>
     </div>
   )
