@@ -10,3 +10,4 @@ export async function getCoords(): Promise<DeliveryData[]> {
 
     return  z.array(DeliverySchema).parse(data) 
 }
+
