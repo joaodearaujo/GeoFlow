@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/cities")
+@RequestMapping("/api/Adress")
 @CrossOrigin("*")
-public class CityController {
+public class AdressController {
 
     private final CityService cityService;
 
-    public CityController(CityService cityService) {
+    public AdressController(AdressService cityService) {
         this.cityService = cityService;
     }
 

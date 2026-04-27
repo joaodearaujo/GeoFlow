@@ -21,6 +21,18 @@ public class Delivery {
     private Double currentLon;
 
     @ManyToOne
-    @JoinColumn(name = "city_id")
-    private City city;
+    @JoinColumn(name = "origin_id")
+    private Origin origin;
+
+    @ManyToOne
+    @JoinColumn(name = "destiny_id")
+    private Destiny destiny;
+
+    @OneToOne
+    @JoinColumn(name = "driver_id")
+    private Driver driver;
+
+    @OneToOne
+    @JoinColumn(name = "package_id")
+    private Package aPackage;
 }

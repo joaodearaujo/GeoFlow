@@ -6,23 +6,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity
 @Data
-public class City {
+public class Adress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O nome da cidade é obrigatório")
-    private String name;
-
-    @NotBlank(message = "O estado deve ter 2 caracteres (UF)")
     private String state;
+    private String city;
+    private String street;
+    private String number;
 
     @NotNull
     @Min(-90)
