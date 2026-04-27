@@ -11,6 +11,12 @@ export default function Deliveries({}: Props) {
             <p className="text-xs text-[#737982]  font-medium">8 total</p>
         </div>
         <Delivery />
+        <Delivery />
+        <Delivery />
+        <Delivery />
+        <Delivery />
+        <Delivery />
+        <Delivery />
     </div>
   )
 } ''
