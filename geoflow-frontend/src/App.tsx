@@ -1,13 +1,16 @@
-import Deliveries from "./components/Deliveries"
-import SearchField from "./components/Search"
-// import Map from "./components/Map"
-import Details from "./components/Details"
+import { useState } from "react";
+import Map from "./components/Map";
+import Details from "./components/Details";
+import Deliveries from "./components/Deliveries";
+import SearchField from "./components/Search";
 
-function App() {
+export default function App() {
+
+  const [selectedDeliveryId, setSelectedDeliveryId] = useState<number | null>(null);
 
   return (
-    <div className="grid grid-cols-12 w-full min-h-0 h-screen overflow-hidden bg-card">
-      <div className="col-span-2 flex min-h-0 h-full flex-col border-b border border-white/10">
+    <main className="flex h-screen w-full bg-[#121212] text-white">
+      <aside className="w-80 border-r border-white/10 flex flex-col">
           <div className="flex flex-col gap-1 w-full p-4 ">
             <h1 className="text-2xl font-bold">GeoFlow</h1>
             <p className="text-sm font-semibold text-[#737982] ">Logística em tempo real</p>
@@ -15,18 +18,22 @@ function App() {
           <div className="flex w-full h-auto p-4 border-b border-t border-white/10">
             <SearchField />
           </div>
-          <Deliveries />
-      </div>
-                  
-      <div className="col-span-7 flex h-full items-center justify-center">
-        {/* <Map /> */}
-      </div>
+        <Deliveries 
+          onSelect={setSelectedDeliveryId} 
+          selectedId={selectedDeliveryId} 
+        />
+      </aside>
 
-      <div className="col-span-3 flex flex-col h-full border-b border border-white/10">
-          <Details />s
-      </div>
-    </div>
-  )
+      <section className="flex-1 relative">
+        <Map 
+          onMarkerClick={setSelectedDeliveryId} 
+          selectedId={selectedDeliveryId} 
+        />
+      </section>
+
+      <aside className="w-96 border-l border-white/10">
+        <Details deliveryId={selectedDeliveryId} />
+      </aside>
+    </main>
+  );
 }
-
-export default App

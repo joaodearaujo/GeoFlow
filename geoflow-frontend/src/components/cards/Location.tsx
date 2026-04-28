@@ -1,7 +1,8 @@
 import { useDeliveries } from "@/hooks/useDeliveries";
+import type { Delivery } from "@/schemas/DeliverySchema";
 import { MapPin, MousePointer2 } from "lucide-react"
 
-export default function Location() {
+export default function Location({delivery}: { delivery: Delivery}) {
 
     const { data: deliveries, isLoading, isError } = useDeliveries();
     

@@ -1,8 +1,9 @@
 import { useDeliveries } from "@/hooks/useDeliveries"
+import type { Delivery } from "@/schemas/DeliverySchema";
 import { Phone, User } from "lucide-react"
 
 
-export default function Driver() {
+export default function Driver({delivery}: { delivery: Delivery}) {
   const { data: deliveries, isLoading, isError } = useDeliveries();
 
   if (isLoading) return <div className="animate-pulse bg-[#252525] h-24 rounded-xl" />;

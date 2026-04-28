@@ -1,9 +1,10 @@
 import { Box, Clock } from "lucide-react"
 import ProgressBar from "../ui/ProgressBar"
 import { useDeliveries } from "@/hooks/useDeliveries";
+import type { Delivery } from "@/schemas/DeliverySchema";
 
 
-export default function Info() {
+export default function Info({delivery}: { delivery: Delivery}) {
 
     const { data: deliveries, isLoading, isError } = useDeliveries();
     
