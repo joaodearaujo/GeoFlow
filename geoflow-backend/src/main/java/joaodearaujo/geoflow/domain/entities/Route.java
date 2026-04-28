@@ -18,8 +18,7 @@ public class Route {
             @AttributeOverride(name = "latitude", column = @Column(name = "origin_lat")),
             @AttributeOverride(name = "longitude", column = @Column(name = "origin_long"))
     })
-    private Address origin; // Ou Address origin, dependendo de como nomeou
-
+    private Address origin; 
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "state", column = @Column(name = "dest_state")),
@@ -30,5 +29,5 @@ public class Route {
             @AttributeOverride(name = "latitude", column = @Column(name = "dest_lat")),
             @AttributeOverride(name = "longitude", column = @Column(name = "dest_long"))
     })
-    private Address destiny; // Ou Address destiny
+    private Address destiny; 
 }

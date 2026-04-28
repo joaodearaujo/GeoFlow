@@ -15,12 +15,12 @@ public class DeliveryService {
 
     private final DeliveryRepository deliveryRepository;
 
-    @Scheduled(fixedRate = 2000)
+    @Scheduled(fixedRate = 5000)
     public void simulateMovement() {
         List<Delivery> activeDeliveries = deliveryRepository.findAll();
 
         for (Delivery delivery : activeDeliveries) {
-            if (delivery.getStatus() == DeliveryStatus.IN_TRANSIT) {
+            if (delivery.getStatus() == DeliveryStatus.in_transit) {
                 delivery.setCurrentLat(delivery.getCurrentLat() + 0.001);
                 delivery.setCurrentLon(delivery.getCurrentLon() + 0.001);
 

@@ -3,9 +3,10 @@ import { Progress } from "./progress"
 
 type Props = {
     value: number
+    status: string
 }
 
-export default function ProgressBar({value}: Props){
+export default function ProgressBar({value, status}: Props){
   return (
            <div className="flex flex-col gap-2">
             <div className="flex justify-between">

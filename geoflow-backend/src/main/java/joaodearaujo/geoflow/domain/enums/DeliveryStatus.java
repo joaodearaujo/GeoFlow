@@ -1,7 +1,7 @@
 package joaodearaujo.geoflow.domain.enums;
 
 public enum DeliveryStatus {
-    PENDING,
-    IN_TRANSIT,
-    DELIVERED
+    pending,
+    in_transit,
+    delivered
 }

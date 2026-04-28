@@ -14,18 +14,18 @@ public class Delivery {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private DeliveryStatus status; //
+    private DeliveryStatus status; 
 
     private Double currentLat;
     private Double currentLon;
 
     @Embedded
-    private Route route; // A rota agora é parte da tabela Delivery
+    private Route route;
 
     @Embedded
-    private Pack pack; // O pacote também é embutido
+    private Pack pack; 
 
     @ManyToOne
     @JoinColumn(name = "driver_id")
-    private Driver driver; //
+    private Driver driver; 
 }

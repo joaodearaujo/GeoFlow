@@ -6,9 +6,7 @@ import {
 
 import { Search } from 'lucide-react';
 
-type Props = {}
-
-export default function SearchField(props: Props) {
+export default function SearchField() {
 
   return (
     <InputGroup>

@@ -28,7 +28,7 @@ const packSchema = z.object({
 export const deliverySchema = z.object({
   id: z.number(),
   description: z.string(),
-  status: z.enum(['PENDING', 'IN_TRANSIT', 'DELIVERED', 'CANCELED']), 
+  status: z.enum(['pending', 'in_transit', 'delivered', 'canceled']), 
   currentLat: z.number(),
   currentLon: z.number(),
   driver: driverSchema,
@@ -37,5 +37,11 @@ export const deliverySchema = z.object({
 });
 
 export const deliveryListSchema = z.array(deliverySchema);
+
+export type Address = z.infer<typeof addressSchema>;
+export type Driver = z.infer<typeof driverSchema>;
+export type Route = z.infer<typeof routeSchema>;
+export type Pack = z.infer<typeof packSchema>;
+export type DeliveryList = z.infer<typeof deliveryListSchema>;
 
 export type Delivery = z.infer<typeof deliverySchema>;

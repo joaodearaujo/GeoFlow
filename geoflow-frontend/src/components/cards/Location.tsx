@@ -1,8 +1,16 @@
-import { MapPin, MousePointer, MousePointer2 } from "lucide-react"
+import { useDeliveries } from "@/hooks/useDeliveries";
+import { MapPin, MousePointer2 } from "lucide-react"
 
-type Props = {}
+export default function Location() {
 
-export default function Location(props: Props) {
+    const { data: deliveries, isLoading, isError } = useDeliveries();
+    
+      if (isLoading) return <div className="animate-pulse transition-all ease-in-out bg-[#252525] h-24 rounded-xl" />;
+      if (isError || !deliveries || deliveries.length === 0) return null;
+    
+      const firstDelivery = deliveries[0];
+      const { route } = firstDelivery;
+
   return (
     <div className="flex justify-center hover:bg-[#292929] bg-[#252525] cursor-pointer flex-col w-full shrink-0 h-fit p-4 rounded-xl border border-white/10">
         <div className="flex flex-col gap-2">
@@ -12,7 +20,7 @@ export default function Location(props: Props) {
                     <CoordsIcon />
                     <div className="flex justify-start h-10 flex-col gap-1">
                         <p className="text-xs text-[#737982] font-regular">Coordenadas</p>
-                        <p className="text-md font-regular leading-none">-23.5505°, -46.6333°</p>
+                        <p className="text-md font-regular leading-none">{parseFloat(firstDelivery.currentLat.toFixed(3))}°, {parseFloat(firstDelivery.currentLon.toFixed(3))}°</p>
                     </div>
                 </div>
             </div>
@@ -21,7 +29,7 @@ export default function Location(props: Props) {
                     <DesitnyIcon />
                     <div className="flex justify-start h-10 flex-col gap-1">
                         <p className="text-xs text-[#737982] font-regular">Destino</p>
-                        <p className="text-md font-regular leading-none">Centro, Rio de Janeiro</p>
+                        <p className="text-md font-regular leading-none">{route.destiny.street}, {route.destiny.number} - {route.destiny.neighborhood}</p>
                     </div>
                 </div>
             </div>
