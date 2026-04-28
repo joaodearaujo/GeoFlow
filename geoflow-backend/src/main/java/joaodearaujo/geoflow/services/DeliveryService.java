@@ -15,7 +15,7 @@ public class DeliveryService {
 
     private final DeliveryRepository deliveryRepository;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 2000)
     public void simulateMovement() {
         List<Delivery> activeDeliveries = deliveryRepository.findAll();
 

@@ -7,7 +7,6 @@ import lombok.Data;
 @Entity
 @Data
 public class Delivery {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,24 +14,18 @@ public class Delivery {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private DeliveryStatus status;
+    private DeliveryStatus status; //
 
     private Double currentLat;
     private Double currentLon;
 
-    @ManyToOne
-    @JoinColumn(name = "origin_id")
-    private Origin origin;
+    @Embedded
+    private Route route; // A rota agora é parte da tabela Delivery
+
+    @Embedded
+    private Pack pack; // O pacote também é embutido
 
     @ManyToOne
-    @JoinColumn(name = "destiny_id")
-    private Destiny destiny;
-
-    @OneToOne
     @JoinColumn(name = "driver_id")
-    private Driver driver;
-
-    @OneToOne
-    @JoinColumn(name = "package_id")
-    private Package aPackage;
+    private Driver driver; //
 }
